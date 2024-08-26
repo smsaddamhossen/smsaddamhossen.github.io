@@ -43,6 +43,26 @@
       width: 40%;
     }
   </style>
+   <script language="javascript">
+ 
+  function DisplayVisits() 
+ {   
+  // How many visits so far?
+      var numVisits = GetCookie("numVisits");
+      if (numVisits) numVisits = parseInt(numVisits) + 1;
+      else numVisits = 1; // the value for the new cookie
+ 
+  // Show the number of visits
+      if (numVisits==1) document.write("This is your first visit.");
+      else document.write("You have visited this page " + numVisits + " times.");
+ 
+  // Set the cookie to expire 365 days from now
+      var today = new Date();
+      today.setTime(today.getTime() + 365 /*days*/ * 24 /*hours*/ * 60 /*minutes*/ * 60 /*seconds*/ * 1000 /*milliseconds*/);
+      SetCookie("numVisits", numVisits, today);
+  }
+ 
+  </script>
   <title>LaraJob.com -- Laravel Job Board</title>
   <body>
     <div class="bgimg">
@@ -54,8 +74,7 @@
         <hr>
         <p id="demo" style="font-size:30px"></p>
         <br><br>
-         <a href='http://www.freevisitorcounters.com'>click here</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=6accc34fcb1e603d46b52d2c6381adfa00c7230a'></script>
-<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1226046/t/0"></script>
+         <script language="javascript">DisplayVisits();</script> 
       </div>
       <div class="bottomleft">
         <p>-- LaraJob.com</p>
